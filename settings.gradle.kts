@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Rentory"
 include(":app")
+ 

@@ -2,15 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.amartyasingh.rentory"
+    namespace = "geekycats.rentory"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.amartyasingh.rentory"
-        minSdk = 28
+        applicationId = "geekycats.rentory"
+        minSdk = 24
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -56,4 +58,38 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    //Coil Compose
+    implementation(libs.coil.compose)
+
+    // Lifecycle
+    implementation (libs.androidx.lifecycle.runtime.compose)
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+
+    // Dagger - Hilt
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.android.compiler)
+    kapt (libs.androidx.hilt.compiler)
+    implementation (libs.androidx.hilt.navigation.compose)
+
+    // Room
+    implementation (libs.androidx.room.ktx)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.paging)
+
+    // Material Icons
+    implementation (libs.androidx.material.icons.extended)
+
+    // Navigation
+    implementation (libs.androidx.navigation.compose)
+
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+
+}
+kapt {
+    correctErrorTypes = true
 }
